@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>청결 위생관리</title>
+
+    <style>
+        *{margin:0; padding:0; box-sizing: border-box;}
+
+        section {max-width:600px; margin:auto; border :5px solid red; position:relative; overflow: hidden;}
+
+        img {width:100%; display:block;}
+        /*하단에 하얀 라인은 인라인 요소 특징 : display:block;을 써서 해결*/
+        /*인라인 요소란: body에서 설정한 img들이 가로로 나열 되는 것을 의미 한다.*/
+
+        img:not(:first-of-type){position:absolute; top:0; left:0;}
+        
+        /*css에서 nth-of-type는 body에 작성된 이미지 리스트 중에서 ()정한번째 를 나타낸다*/
+        img:nth-of-type(2) {animation:up 2s both;}
+
+        @keyframes up {
+            0% {bottom:-100px; top:initial; opacity: 0;}
+            100% {bottom:0px; top:initial; opacity: 1;}
+        }
+
+        /* keyframes up에서 top을 initial(초기화) 하는 이유는 img:not(:first-of-type)에서 지정한 나머지 이미지들의 위치를 절대적인 위치로 top:0 left:0을 고정해 놨기 때문에 이것을 무시하고 설정한 animation을 수행하라는 의미이다.*/
+
+        img:nth-of-type(3) {animation:Lefttoright 2s both;}
+        
+        @keyframes Lefttoright{
+            0% {left: -100px; opacity: 0;}
+            100% {left: 0px; opacity: 1;}
+        }
+
+        img:nth-of-type(4) {animation:zigzag 10s both infinite alternate; }
+
+        @keyframes zigzag{
+            0% {top:-100px; left:initial; right:0px; transform:rotate(-10deg);}
+            15% {top:80px; left:initial; right:10px; transform:rotate(5deg);}
+            30% {top:-60px; left:initial; right:5px; transform:rotate(0deg);}
+            50% {top:-40px; left:initial; right:0; transform:rotate(-60deg);}
+            70% {top:70px; left:initial; right:-5px; transform:rotate(0deg);}
+            85% {top:-70px; left:initial; right:0px; transform:rotate(-5deg);} 
+            100% {top:30px; left:initial; right:5px; transform:rotate(5deg);}
+        }
+        
+        img:nth-of-type(5) {animation:rotate 3s 1.5s both infinite;}
+
+        @keyframes rotate {
+            from {transform: rotate(360deg) scale(0);}
+            to {transform: rotate(0deg) scale(1);}
+        }
+
+        img:nth-of-type(6) {animation:zz 2s 0s both infinite alternate; }
+        /*infinite: 키프레임 무한반복, alternate:일방향동작을 역방향으로 동작 */
+        @keyframes zz {
+            from {left:50px; }
+            to {left:0px; }
+        }
+
+
+        h1 {display:none;}
+
+        
+    </style>
+</head>
+
+<body>
+    <section>
+        <h1>청결 위생관리 애니메이션</h1>
+        <img src="images/bg2.jpg" alt="배경">
+        <img src="images/2-1.png" alt="화병">
+        <img src="images/2-2.png" alt="꽃">
+        <img src="images/2-3.png" alt="나비">
+        <img src="images/2-4.png" alt="모레시계">
+        <img src="images/2-5.png" alt="청결글자">
+    </section>
+</body>
+</html>
